@@ -59,6 +59,5 @@ catch {
     Write-Host $_.Exception.Message
 }
 finally {
-    Write-Host ""
-    Read-Host "Press ENTER to close"
+    Write-Host "Succesfully updated."
 }
