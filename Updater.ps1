@@ -23,7 +23,6 @@ try {
 
     if ($null -eq $latestFile) {
         Write-Host "No file matching the pattern was found in the network folder." -ForegroundColor Yellow
-        Read-Host "Press ENTER to close"
         exit 1
     }
 
@@ -52,12 +51,11 @@ catch [System.UnauthorizedAccessException] {
     Write-Host $destinationPath
     Write-Host ""
     Write-Host "Please run this script as Administrator." -ForegroundColor Yellow
+    exit 1
 }
 catch {
     Write-Host ""
     Write-Host "UNEXPECTED ERROR" -ForegroundColor Red
     Write-Host $_.Exception.Message
-}
-finally {
-    Write-Host "Succesfully updated."
+    exit 1
 }
